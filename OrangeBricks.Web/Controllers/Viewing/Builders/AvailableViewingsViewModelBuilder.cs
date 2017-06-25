@@ -34,7 +34,21 @@ namespace OrangeBricks.Web.Controllers.Viewing.Builders
 
         public IEnumerable<SelectListItem> GenerateSchedule(TimeSpan startTime, TimeSpan endTime, int viewingDuration, DateTime date, IList<Models.Viewing> viewingsOnDate)
         {
-            throw new NotImplementedException();
+            var schedule = new List<SelectListItem>();
+
+            for (var i = startTime; i < endTime;
+                i = i.Add(TimeSpan.FromMinutes(viewingDuration)))
+            {
+                var dateToCkeck = new DateTime(date.Year, date.Month, date.Day, i.Hours, i.Minutes, 0);
+                if (viewingsOnDate.All(x => x.ViewAt != dateToCkeck))
+                    schedule.Add(new SelectListItem
+                    {
+                        Value = i.ToString(),
+                        Text = i.ToString(@"hh\:mm")
+                    });
+            }
+
+            return schedule;
         }
     }
 }
