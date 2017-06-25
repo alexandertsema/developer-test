@@ -243,6 +243,14 @@
     <Compile Include="Migrations\201706251650542_AddAvailabilityPropToPropertyEntity.Designer.cs">
       <DependentUpon>201706251650542_AddAvailabilityPropToPropertyEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706251655564_AddViewingEntity.cs" />
+    <Compile Include="Migrations\201706251655564_AddViewingEntity.Designer.cs">
+      <DependentUpon>201706251655564_AddViewingEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706251656361_AddViewingsPropToPropertyEntity.cs" />
+    <Compile Include="Migrations\201706251656361_AddViewingsPropToPropertyEntity.Designer.cs">
+      <DependentUpon>201706251656361_AddViewingsPropToPropertyEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -252,6 +260,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Offer.cs" />
     <Compile Include="Models\Property.cs" />
+    <Compile Include="Models\Viewing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -349,6 +358,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706251650542_AddAvailabilityPropToPropertyEntity.resx">
       <DependentUpon>201706251650542_AddAvailabilityPropToPropertyEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706251655564_AddViewingEntity.resx">
+      <DependentUpon>201706251655564_AddViewingEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706251656361_AddViewingsPropToPropertyEntity.resx">
+      <DependentUpon>201706251656361_AddViewingsPropToPropertyEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

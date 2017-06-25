@@ -29,5 +29,7 @@ namespace OrangeBricks.Web.Models
         public ICollection<Offer> Offers { get; set; }
 
         public Availability Availability { get; set; }
+
+        public ICollection<Viewing> Viewings { get; set; }
     }
 }
