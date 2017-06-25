@@ -17,8 +17,15 @@ namespace OrangeBricks.Web.Controllers.Viewing.Builders
 
         public ViewingsOnPropertyViewModel Build(int propertyId)
         {
+            var property = _context.Properties.Find(propertyId);
             return new ViewingsOnPropertyViewModel
             {
+                Property = new PropertyViewModel()
+                {
+                    StreetName = property?.StreetName,
+                    NumberOfBedrooms = property?.NumberOfBedrooms ?? 0,
+                    PropertyType = property?.PropertyType,
+                },
                 Viewings = _context.Viewing
                     .Include(x => x.Property)
                     .Where(x => x.Property.Id == propertyId)
@@ -26,14 +33,7 @@ namespace OrangeBricks.Web.Controllers.Viewing.Builders
                     .Select(x => new ViewingViewModel
                     {
                         ViewAt = x.ViewAt,
-                        BuyerUserName = x.Buyer.UserName,
-                        Property = new PropertyViewModel()
-                        {
-                            StreetName = x.Property.StreetName,
-                            Description = x.Property.Description,
-                            NumberOfBedrooms = x.Property.NumberOfBedrooms,
-                            PropertyType = x.Property.PropertyType,
-                        }
+                        BuyerUserName = x.Buyer.UserName
                     })
             };
         }
