@@ -27,6 +27,7 @@ namespace OrangeBricks.Web.Controllers.Offers.Builders
                     CreatedAt = x.CreatedAt,
                     IsPending = x.Status == OfferStatus.Pending,
                     Status = x.Status.ToString(),
+                    UptatedAt = x.UpdatedAt,
                     Property = x.Property
                 })
             };
