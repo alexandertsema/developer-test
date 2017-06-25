@@ -199,7 +199,9 @@
     <Compile Include="Controllers\Property\ViewModels\MyPropertiesViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\PropertiesViewModel.cs" />
     <Compile Include="Controllers\Property\ViewModels\PropertyViewModel.cs" />
+    <Compile Include="Controllers\Viewing\Builders\AvailableViewingsViewModelBuilder.cs" />
     <Compile Include="Controllers\Viewing\ViewingController.cs" />
+    <Compile Include="Controllers\Viewing\ViewModels\AvailableViewingsViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -322,9 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Viewing\Builders\" />
     <Folder Include="Controllers\Viewing\Commands\" />
-    <Folder Include="Controllers\Viewing\ViewModels\" />
     <Folder Include="Views\Viewing\" />
   </ItemGroup>
   <ItemGroup>
