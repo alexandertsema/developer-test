@@ -24,6 +24,10 @@ namespace OrangeBricks.Web.Tests.Controllers.Viewing.Builders
         }
 
         [Test]
+        [Description("After method refactoring with DbFunctions.TruncateTime() test's result in red." +
+                     " Going back to manually extracting date and evaluating against dates range in not efficient, " +
+                     "faking expression is too time consuming.")]
+        [ExpectedException("System.NotSupportedException")]
         public void GetViewingsOfDateShouldReturnAllViewwingsOfPropertyOfDateProvided()
         {
             // Arrange

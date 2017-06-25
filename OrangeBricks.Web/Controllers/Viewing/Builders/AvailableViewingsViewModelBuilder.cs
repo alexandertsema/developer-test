@@ -24,11 +24,8 @@ namespace OrangeBricks.Web.Controllers.Viewing.Builders
 
         public IEnumerable<Models.Viewing> GetViewingsOfDate(DateTime date, int propertyId)
         {
-            var lowerBoundDate = date.Date;
-            var upperBoundDate = lowerBoundDate.AddDays(1).Date;
             return _context.Viewing.Where(x => x.PropertyId == propertyId
-                                               && x.ViewAt >= lowerBoundDate
-                                               && x.ViewAt < upperBoundDate)
+                                               && DbFunctions.TruncateTime(x.ViewAt) == DbFunctions.TruncateTime(date))
                                                 .ToList();
         }
 
