@@ -1,0 +1,48 @@
+﻿@model OrangeBricks.Web.Controllers.Viewing.ViewModels.ViewingsOnPropertyViewModel
+
+@{
+    ViewBag.Title = "Viewings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+
+
+@if (Model.Viewings.Any())
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    When
+                </th>
+                <th>
+                    Who
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var viewing in Model.Viewings)
+            {
+                <tr>
+                    <td>
+                        @viewing.ViewAt.ToString("g")
+                    </td>
+                    <td>
+                        @viewing.BuyerUserName
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info" role="alert">
+        This property has no scheduled viewings yet!
+    </div>
+}
+
+
