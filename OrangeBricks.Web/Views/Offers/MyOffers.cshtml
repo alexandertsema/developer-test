@@ -1,0 +1,30 @@
+﻿@model OrangeBricks.Web.Controllers.Offers.ViewModels.MyOffersViewModel
+
+@{
+    ViewBag.Title = "My Offers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (Model.Offers.Any())
+{
+    <p>You have @Model.Offers.Count() accepted offer(s)!</p>
+
+    foreach (var offer in Model.Offers)
+    {
+        <div>
+            <p><strong>Property: </strong> @offer.Property.PropertyType at @offer.Property.StreetName</p>
+            <p><strong>Offer Amount: </strong> £@offer.Amount</p>
+            <p><strong>Offer Made At: </strong> @offer.CreatedAt.ToLongTimeString() on @offer.CreatedAt.ToShortDateString()</p>
+            <p><strong>Status: </strong> @offer.Status on @offer.UptatedAt</p>
+        </div>
+        <hr />
+    }
+}
+else
+{
+    <div class="alert alert-info" role="alert">
+        None of your offer was accepted yet.
+    </div>
+}
