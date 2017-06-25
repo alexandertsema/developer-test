@@ -22,5 +22,7 @@ namespace OrangeBricks.Web.Controllers.Property.ViewModels
         public int NumberOfBedrooms { get; set; }
 
         public IEnumerable<SelectListItem> PossiblePropertyTypes { get; set; }
+
+        public AvailabilityViewModel Availability { get; set; }
     }
 }
