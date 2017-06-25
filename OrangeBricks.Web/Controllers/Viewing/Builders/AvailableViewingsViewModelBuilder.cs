@@ -19,7 +19,43 @@ namespace OrangeBricks.Web.Controllers.Viewing.Builders
 
         public AvailableViewingsViewModel Build(int propertyId, DateTime date)
         {
-            throw new NotImplementedException();
+            var availability = _context.Properties
+                .Include(x => x.Availability)
+                .SingleOrDefault(x => x.Id == propertyId)
+                ?.Availability;
+
+            if (availability == null)
+            {
+                return new AvailableViewingsViewModel
+                {
+                    ViewingDate = date,
+                    Times = new List<SelectListItem>(),
+                    PropertyId = propertyId
+                };
+            }
+            if (date < availability.StartDate)
+            {
+                return new AvailableViewingsViewModel
+                {
+                    ViewingDate = date,
+                    Times = new List<SelectListItem>(),
+                    PropertyId = propertyId,
+                    ViewingDuration = availability.ViewingDuration
+                };
+            }
+
+            var viewingsOnDate = GetViewingsOfDate(date, propertyId);
+
+            var schedule = GenerateSchedule(availability.StartTime, availability.EndTime, availability.ViewingDuration, date, viewingsOnDate.ToList());
+
+            return new AvailableViewingsViewModel
+            {
+                StartViewingDate = availability.StartDate.ToString("yyyy-MM-dd"),
+                ViewingDate = date,
+                Times = schedule,
+                PropertyId = propertyId,
+                ViewingDuration = availability.ViewingDuration
+            };
         }
 
         public IEnumerable<Models.Viewing> GetViewingsOfDate(DateTime date, int propertyId)
