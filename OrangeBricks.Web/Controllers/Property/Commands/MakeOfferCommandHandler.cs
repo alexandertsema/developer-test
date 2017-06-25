@@ -22,16 +22,17 @@ namespace OrangeBricks.Web.Controllers.Property.Commands
                 Amount = command.Offer,
                 Status = OfferStatus.Pending,
                 CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.Now,
+                BuyerId = command.BuyerId
             };
 
             if (property.Offers == null)
             {
                 property.Offers = new List<Offer>();
             }
-                
+
             property.Offers.Add(offer);
-            
+
             _context.SaveChanges();
         }
     }
