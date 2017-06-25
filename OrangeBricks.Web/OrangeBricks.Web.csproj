@@ -201,6 +201,7 @@
     <Compile Include="Controllers\Property\ViewModels\PropertyViewModel.cs" />
     <Compile Include="Controllers\Viewing\Builders\AvailableViewingsViewModelBuilder.cs" />
     <Compile Include="Controllers\Viewing\Commands\BookViewingCommand.cs" />
+    <Compile Include="Controllers\Viewing\Commands\BookViewingCommandHandler.cs" />
     <Compile Include="Controllers\Viewing\ViewingController.cs" />
     <Compile Include="Controllers\Viewing\ViewModels\AvailableViewingsViewModel.cs" />
     <Compile Include="Global.asax.cs">
