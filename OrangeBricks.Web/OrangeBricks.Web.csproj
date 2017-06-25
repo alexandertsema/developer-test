@@ -179,7 +179,9 @@
     <Compile Include="Controllers\Offers\Commands\RejectOfferCommand.cs" />
     <Compile Include="Controllers\Offers\Commands\RejectOfferCommandHandler.cs" />
     <Compile Include="Controllers\Offers\OffersController.cs" />
+    <Compile Include="Controllers\Offers\ViewModels\MyOffersViewModel.cs" />
     <Compile Include="Controllers\Offers\ViewModels\OffersOnPropertyViewModel.cs" />
+    <Compile Include="Controllers\Offers\ViewModels\OfferViewModel.cs" />
     <Compile Include="Controllers\Property\Builders\MakeOfferViewModelBuilder.cs" />
     <Compile Include="Controllers\Property\Builders\MyPropertiesViewModelBuilder.cs" />
     <Compile Include="Controllers\Property\Builders\PropertiesQuery.cs" />
