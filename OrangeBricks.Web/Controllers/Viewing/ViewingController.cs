@@ -4,8 +4,10 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using OrangeBricks.Web.Attributes;
 using OrangeBricks.Web.Controllers.Viewing.Builders;
+using OrangeBricks.Web.Controllers.Viewing.Commands;
 using OrangeBricks.Web.Models;
 
 namespace OrangeBricks.Web.Controllers.Viewing
@@ -34,6 +36,38 @@ namespace OrangeBricks.Web.Controllers.Viewing
             {
                 return View("Error", new HandleErrorInfo(e, GetType().Name, MethodBase.GetCurrentMethod().Name));
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [OrangeBricksAuthorize(Roles = "Buyer")]
+        public ActionResult BookViewing(BookViewingCommand bookViewingCommand)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var handler = new BookViewingCommandHandler(_context);
+
+                    bookViewingCommand.BuyerId = User.Identity.GetUserId();
+
+                    if (!handler.Handle(bookViewingCommand))
+                    {
+                        ModelState.AddModelError("ViewingDate", @"You can book only 1 viewing per day on this property!");
+                        var builder = new AvailableViewingsViewModelBuilder(_context);
+                        var viewModel = builder.Build(bookViewingCommand.PropertyId, bookViewingCommand.ViewingDate);
+                        viewModel.ViewingTime = bookViewingCommand.ViewingTime;
+                        return View(viewModel);
+                    }
+
+                    return RedirectToAction("Index", "Property");
+                }
+                catch (Exception e)
+                {
+                    return View("Error", new HandleErrorInfo(e, GetType().Name, MethodBase.GetCurrentMethod().Name));
+                }
+            }
+            return View();
         }
     }
 }
