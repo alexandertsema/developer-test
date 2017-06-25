@@ -235,9 +235,18 @@
     <Compile Include="Migrations\201706250352295_AddBuyerIdPropertyToOfferEntity.Designer.cs">
       <DependentUpon>201706250352295_AddBuyerIdPropertyToOfferEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706251649398_AddAvailabilityEntity.cs" />
+    <Compile Include="Migrations\201706251649398_AddAvailabilityEntity.Designer.cs">
+      <DependentUpon>201706251649398_AddAvailabilityEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706251650542_AddAvailabilityPropToPropertyEntity.cs" />
+    <Compile Include="Migrations\201706251650542_AddAvailabilityPropToPropertyEntity.Designer.cs">
+      <DependentUpon>201706251650542_AddAvailabilityPropToPropertyEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Availability.cs" />
     <Compile Include="Models\OfferStatus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -334,6 +343,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706250352295_AddBuyerIdPropertyToOfferEntity.resx">
       <DependentUpon>201706250352295_AddBuyerIdPropertyToOfferEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706251649398_AddAvailabilityEntity.resx">
+      <DependentUpon>201706251649398_AddAvailabilityEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706251650542_AddAvailabilityPropToPropertyEntity.resx">
+      <DependentUpon>201706251650542_AddAvailabilityPropToPropertyEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
