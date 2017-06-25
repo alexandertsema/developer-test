@@ -205,6 +205,7 @@
     <Compile Include="Controllers\Viewing\Commands\BookViewingCommandHandler.cs" />
     <Compile Include="Controllers\Viewing\ViewingController.cs" />
     <Compile Include="Controllers\Viewing\ViewModels\AvailableViewingsViewModel.cs" />
+    <Compile Include="Controllers\Viewing\ViewModels\ViewingsOnPropertyViewModel.cs" />
     <Compile Include="Controllers\Viewing\ViewModels\ViewingViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
