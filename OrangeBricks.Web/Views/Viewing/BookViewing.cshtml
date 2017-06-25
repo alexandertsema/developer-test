@@ -28,7 +28,7 @@
                 <div class="alert alert-info" role="alert">
                     *The maximum duration of this viewing is <strong>@Model.ViewingDuration</strong> minutes
                 </div>
-                @Html.ValidationMessageFor(model => model.ViewingTime)
+                @Html.ValidationMessageFor(model => model.ViewingTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
