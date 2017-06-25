@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using OrangeBricks.Web.Controllers.Property.ViewModels;
 using OrangeBricks.Web.Models;
 
 namespace OrangeBricks.Web.Controllers.Property.Commands
@@ -18,5 +19,7 @@ namespace OrangeBricks.Web.Controllers.Property.Commands
         public int NumberOfBedrooms { get; set; }
 
         public string SellerUserId { get; set; }
+
+        public AvailabilityViewModel Availability { get; set; } = new AvailabilityViewModel();
     }
 }
