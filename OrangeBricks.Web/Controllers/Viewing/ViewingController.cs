@@ -22,6 +22,22 @@ namespace OrangeBricks.Web.Controllers.Viewing
             _context = context;
         }
 
+        [OrangeBricksAuthorize(Roles = "Seller")]
+        public ActionResult MyViewings(int propertyId)
+        {
+            try
+            {
+                var builder = new ViewingsOnPropertyViewModelBuilder(_context);
+                var viewModel = builder.Build(propertyId);
+
+                return View(viewModel);
+            }
+            catch (Exception e)
+            {
+                return View("Error", new HandleErrorInfo(e, GetType().Name, MethodBase.GetCurrentMethod().Name));
+            }
+        }
+
         [OrangeBricksAuthorize(Roles = "Buyer")]
         public ActionResult BookViewing(int propertyId, DateTime date)
         {
